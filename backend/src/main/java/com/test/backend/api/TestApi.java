@@ -31,15 +31,6 @@ public class TestApi {
         return response;
     }
 
-    @GetMapping
-    @RequestMapping("/2")
-    public TestResponse test2(){
-        TestResponse  response = new TestResponse();
-        response.setName("Nac2");
-        response.setFood("Pizza2");
-
-        return response;
-    }
 
     @PostMapping
     @RequestMapping("/register")
