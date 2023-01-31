@@ -1,6 +1,7 @@
 package com.test.backend.api;
 
 import com.test.backend.business.TestBusiness;
+import com.test.backend.exception.UserException;
 import com.test.backend.model.MRegisterRequest;
 import com.test.backend.model.TestResponse;
 import org.springframework.http.HttpStatus;
@@ -34,14 +35,9 @@ public class TestApi {
 
     @PostMapping
     @RequestMapping("/register")
-    public ResponseEntity<String> register(@RequestBody MRegisterRequest request){
-        String response = null;
-        try {
-            response = business.register(request);
-            return ResponseEntity.ok(response);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).build();
-        }
+    public ResponseEntity<String> register(@RequestBody MRegisterRequest request) throws UserException {
+        String response = business.register(request);
+        return ResponseEntity.ok(response);
     }
     public static void main(String[] args){
     }
